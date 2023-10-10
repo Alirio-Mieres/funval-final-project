@@ -13,7 +13,7 @@ import { UpdateRolesPage } from "../pages/UpdateRolesPage";
 import { UpdateEnlancesPage } from "../pages/UpdateEnlancesPage";
 import { CreateEnlacesPage } from "../pages/CreateEnlacesPage";
 import { CreateUsuariosPage } from "../pages/CreateUsuariosPage"; 
-
+import { Home } from "../pages/Home";
 export const AppRouter = () => {
   return (
     <>  
@@ -35,10 +35,8 @@ export const AppRouter = () => {
         <Route path="enlaces/update/:id" element={<UpdateEnlancesPage />} />
         {/* Bitacoras */}
         <Route path="bitacoras" element={<BitacorasPage />} />
-        {/* <Route path="register" element={<RegisterPage />} /> */}
-        {/* <Route path="personal-info" element={<PersonalInfo />} /> */}
-        {/* <Route path="usuarios" element={<Usuarios />} /> */}
-        {/* <Route path="/*" element={<AdminRoutes />} /> */}
+        
+        <Route path="/" element={<Home />} />
       </Routes>
     </>
   );
