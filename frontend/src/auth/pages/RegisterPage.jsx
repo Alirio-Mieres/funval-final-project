@@ -18,8 +18,8 @@ export const RegisterPage = () => {
     e.preventDefault();
 
     const user = {
-      usuario: email.current.value,
-      clave: password.current.value,
+      email: email.current.value,
+      password: password.current.value,
       // habilitado: true,
       // id_persona: 1,
       // id_rol: 1,

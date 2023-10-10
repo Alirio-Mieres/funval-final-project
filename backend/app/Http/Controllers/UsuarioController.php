@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Persona;
-use App\Models\Usuario;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
@@ -13,7 +13,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $usuario = Usuario::all();
+        $usuario = User::all();
         return $usuario;
     }
 
@@ -24,17 +24,17 @@ class UsuarioController extends Controller
     {
         try {
             $request->validate([
-                'usuario' => 'required|email',
-                'clave' => 'required',
+                'email' => 'required|email',
+                'password' => 'required',
             ]);
 
             $persona = new Persona();
             $persona->save();
             $id_persona = $persona->id;
 
-            $usuario = new Usuario();
-            $usuario->usuario = $request->usuario;
-            $usuario->clave = $request->clave;
+            $usuario = new User();
+            $usuario->email = $request->email;
+            $usuario->password = $request->password;
             $usuario->habilitado = true;
             $usuario->id_persona = $id_persona;
             $usuario->id_rol = 1;
@@ -54,7 +54,7 @@ class UsuarioController extends Controller
     public function show(string $id)
     {
         //
-        $usuario = Usuario::find($id);
+        $usuario = User::find($id);
 
         if (!$usuario) {
             return json_encode([
@@ -71,7 +71,7 @@ class UsuarioController extends Controller
     public function update(Request $request, string $id)
     {
         //
-        $usuario = Usuario::find($id);
+        $usuario = User::find($id);
 
         if (!$usuario) {
             return json_encode([
@@ -89,7 +89,7 @@ class UsuarioController extends Controller
     public function destroy(string $id)
     {
         $this->show($id);
-        $usuario = Usuario::destroy($id);
+        $usuario = User::destroy($id);
         return $usuario;
     }
 }

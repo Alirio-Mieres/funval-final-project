@@ -52,8 +52,7 @@ export const UsuariosPage = () => {
                 {usuarios.map((usuario) => (
                   <tr key={usuario.id}>
                     <td className="border px-4 py-2">{usuario.id}</td>
-                    <td className="border px-4 py-2">{usuario.usuario}</td>
-                    <td className="border px-4 py-2">{usuario.clave}</td>
+                    <td className="border px-4 py-2">{usuario.email}</td>
                     <td className="border px-4 py-2">
                       {usuario.habilitado ? "Sí" : "No"}
                     </td>
