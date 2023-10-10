@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('ip');
             $table->string('sistema_operativo');
             $table->string('navegador');
-            $table->foreignId('id_usuario')->constrained('usuarios')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('id_usuario')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
