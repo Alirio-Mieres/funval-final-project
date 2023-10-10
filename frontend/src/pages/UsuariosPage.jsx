@@ -42,8 +42,7 @@ export const UsuariosPage = () => {
                 <tr>
                   <th className="px-4 py-2">ID</th>
                   <th className="px-4 py-2">Usuario</th>
-                  <th className="px-4 py-2">Clave</th>
-                  <th className="px-4 py-2">Habilitado</th>
+                  <th className="px-4 py-2">Habilitado</th> 
                   <th className="px-4 py-2">ID Persona</th>
                   <th className="px-4 py-2">ID Rol</th>
                 </tr>
@@ -69,22 +68,3 @@ export const UsuariosPage = () => {
   );
 };
 
-// <div className="flex flex-col bg-white rounded-lg shadow-lg overflow-hidden mb-4">
-//   <div className="px-6 py-4 bg-gray-900">
-//     <div className="font-bold text-xl text-white">
-//       {usuario.usuario}
-//     </div>
-//     <p className="text-gray-200 text-base">{usuario.clave}</p>
-//   </div>
-//   <div className="bg-gray-800 px-6 py-4 flex items-center">
-//     <div className="bg-gray-900 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2">
-//       {usuario.habilitado ? "Habilitado" : "Deshabilitado"}
-//     </div>
-//     <div className="bg-gray-900 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2">
-//       {usuario.id_persona}
-//     </div>
-//     <div className="bg-gray-900 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2">
-//       {usuario.id_rol}
-//     </div>
-//   </div>
-// </div>
