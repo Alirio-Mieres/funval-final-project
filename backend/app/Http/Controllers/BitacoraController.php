@@ -29,7 +29,7 @@ class BitacoraController extends Controller
                 'ip' => 'required|string',
                 'sistema_operativo' => 'required|string',
                 'navegador' => 'required|string',
-                'id_usuario' => 'required|exists:usuarios,id',
+                'id_usuario' => 'required|exists:users,id',
             ]);
 
             $bitacora = Bitacora::create($request->all());

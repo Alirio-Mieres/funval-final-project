@@ -37,7 +37,7 @@ class UsuarioController extends Controller
             $usuario->password = $request->password;
             $usuario->habilitado = true;
             $usuario->id_persona = $id_persona;
-            $usuario->id_rol = 1;
+            $usuario->id_rol = 2;
             $usuario->save();
 
             return $usuario;
