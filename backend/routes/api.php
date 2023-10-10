@@ -9,6 +9,7 @@ use App\Http\Controllers\UsuarioController;
 use App\Models\Enlace;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,13 +26,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::controller(PersonaController::class)->group(function() {
-    Route::get('/personas', 'index');
-    Route::get('/personas/{id}', 'show');
-    Route::post('/personas', 'store');
-    Route::put('/personas/{id}', 'update');
-    Route::delete('/personas/{id}', 'destroy');
+Route::middleware(['jwt.verify'])->group(function () {
+    Route::controller(PersonaController::class)->group(function() {
+        Route::get('/personas', 'index');
+        Route::get('/personas/{id}', 'show');
+        Route::post('/personas', 'store');
+        Route::put('/personas/{id}', 'update');
+        Route::delete('/personas/{id}', 'destroy');
+    });
 });
+
 
 Route::controller(RolController::class)->group(function() {
     Route::get('/roles', 'index');
@@ -72,3 +76,14 @@ Route::controller(BitacoraController::class)->group(function() {
     Route::put('/bitacoras/{id}', 'update');
     Route::delete('/enlbitacorasaces/{id}', 'destroy');
 });
+
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'auth'
+], function ($route) {
+    Route::post('login', [AuthController::class, 'login']);
+    Route::post('logout', [AuthController::class, 'logout']);
+    Route::post('refresh', [AuthController::class, 'refresh']);
+    Route::post('me', [AuthController::class, 'me']);
+});
+
